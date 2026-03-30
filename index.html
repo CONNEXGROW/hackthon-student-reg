@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuva Bharat Vocational Training Portal</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
             --saffron: #FF9933;
             --white: #FFFFFF;
@@ -21,14 +15,18 @@
             --border-gray: #E0E0E0;
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--dark-gray);
             overflow-x: hidden;
         }
-
-
 
         /* Header */
         header {
@@ -162,17 +160,6 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
         .hero-content {
             max-width: 100%;
             margin: 0 auto;
@@ -189,9 +176,10 @@
 
         .hero-image {
             width: 100%;
+            max-width: 800px;
             height: 400px;
             object-fit: cover;
-            margin: 0;
+            margin: 0 auto 20px;
             display: block;
             box-shadow: 0 10px 40px rgba(0,0,0,0.4);
             border: 5px solid transparent;
@@ -293,20 +281,15 @@
         }
 
         @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(calc(-180px * 8 - 30px * 8));
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-180px * 8 - 30px * 8)); }
         }
 
-        /* Industry Collaboration Sliding Section */
+        /* Industry Collaboration */
         .industry-collab-section {
             background: white;
             padding: 60px 40px;
             overflow: hidden;
-            position: relative;
         }
 
         .industry-collab-container {
@@ -334,69 +317,20 @@
             border: 4px solid var(--saffron);
         }
 
-        .industry-collab-text h3 {
-            font-size: 32px;
-            color: var(--navy);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .industry-collab-text p {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-
-        .industry-collab-text .btn-primary {
-            background: linear-gradient(135deg, var(--saffron), var(--green));
-            color: var(--white);
-            padding: 12px 30px;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 25px;
-            transition: 0.3s;
-        }
-
-        .industry-collab-text .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 153, 51, 0.4);
-        }
-
         @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @media (max-width: 768px) {
             .industry-collab-container {
                 flex-direction: column;
                 gap: 30px;
-            }
-
-            .industry-collab-text h3 {
-                font-size: 24px;
-            }
-
-            .industry-collab-text p {
-                font-size: 14px;
             }
         }
 
@@ -479,127 +413,7 @@
             color: var(--green);
         }
 
-        /* About Section */
-        .about {
-            padding: 60px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        /* Objectives Section */
-        .objectives {
-            background: var(--light-gray);
-            padding: 60px 40px;
-        }
-
-        /* Courses Section */
-        .courses {
-            padding: 60px 40px;
-            background: var(--white);
-        }
-
-        .course-card {
-            background: var(--white);
-            border: 1px solid var(--border-gray);
-            padding: 25px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .course-card:hover {
-            background: #F9F9F9;
-            border-color: var(--saffron);
-            box-shadow: 0 4px 15px rgba(255, 153, 51, 0.2);
-        }
-
-        .course-card h3 {
-            color: var(--navy);
-            margin-bottom: 10px;
-        }
-
-        .course-card p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--saffron);
-            border: 2px solid var(--saffron);
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-outline:hover {
-            background: var(--saffron);
-            color: var(--white);
-        }
-
-        /* Stakeholders Section */
-        .stakeholders {
-            background: var(--light-gray);
-            padding: 60px 40px;
-        }
-
-        /* Collaborations Section */
-        .collaborations {
-            padding: 60px 40px;
-            background: var(--white);
-        }
-
-        .slider-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .slider {
-            display: flex;
-            gap: 30px;
-            animation: slide 20s linear infinite;
-            padding: 20px;
-            background: var(--light-gray);
-            border-radius: 10px;
-        }
-
-        .slider-item {
-            min-width: 150px;
-            height: 100px;
-            background: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            font-weight: 600;
-            color: var(--navy);
-            border: 2px solid var(--border-gray);
-        }
-
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        /* Statistics Section */
+        /* Statistics */
         .statistics {
             background: linear-gradient(135deg, var(--navy), var(--saffron));
             color: var(--white);
@@ -624,68 +438,6 @@
         .stat-item p {
             font-size: 16px;
             opacity: 0.9;
-        }
-
-        /* Updates Section */
-        .updates {
-            padding: 60px 40px;
-            background: var(--light-gray);
-        }
-
-        .notice-board {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .notice {
-            background: var(--white);
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 5px solid var(--saffron);
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-
-        .notice h4 {
-            color: var(--navy);
-            margin-bottom: 8px;
-        }
-
-        .notice p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 60px 40px;
-            background: var(--white);
-        }
-
-        .contact-info {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .contact-item {
-            background: var(--light-gray);
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .contact-item h4 {
-            color: var(--navy);
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .contact-item p {
-            color: #666;
-            font-size: 14px;
         }
 
         /* Footer */
@@ -737,28 +489,8 @@
                 padding: 15px 20px;
             }
 
-            .header-content {
-                padding: 0;
-            }
-
-            .logo-section h1 {
-                font-size: 18px;
-            }
-
-            nav {
-                gap: 15px;
-            }
-
-            .hero {
-                padding: 50px 20px;
-            }
-
             .hero h2 {
                 font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 16px;
             }
 
             .section-title {
@@ -768,22 +500,10 @@
             .stat-item h3 {
                 font-size: 36px;
             }
-
-            .cards-grid, .stats-grid, .contact-info {
-                grid-template-columns: 1fr;
-            }
-
-            .gov-strip {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
         }
     </style>
 </head>
 <body>
-
-
     <!-- Header -->
     <header>
         <div class="header-content">
@@ -824,7 +544,7 @@
             </div>
         </section>
 
-        <!-- Industry Collaboration Sliding Section -->
+        <!-- Industry Collaboration -->
         <section class="industry-collab-section" id="industry-collab">
             <div class="industry-collab-container">
                 <div class="industry-collab-text">
@@ -833,12 +553,12 @@
                     <a href="#stakeholders" class="btn-primary">Learn More</a>
                 </div>
                 <div class="industry-collab-image">
-                    <img src="indian company image.jpg" alt="Industry Collaboration">
+                    <img src="indian-company-image.jpg" alt="Industry Collaboration">
                 </div>
             </div>
         </section>
 
-        <!-- Logo Carousel Section -->
+        <!-- Logo Carousel -->
         <section class="logo-carousel">
             <div class="carousel-track">
                 <div class="logo-item"><img src="sudisa_foundry_private_limited___india_logo.jpg" alt="Company 1"></div>
@@ -846,9 +566,7 @@
                 <div class="logo-item"><img src="hero.png" alt="Company 3"></div>
                 <div class="logo-item"><img src="honda.png" alt="Company 4"></div>
                 <div class="logo-item"><img src="yamaha-logo-design-template-2a186d04b863b074df7c64226ab79f4b_screen.jpg" alt="Company 5"></div>
-                <div class="logo-item"><img src="skoda.jpg" alt="Company 1"></div>
-              
-               
+                <div class="logo-item"><img src="skoda.jpg" alt="Company 6"></div>
             </div>
         </section>
 
@@ -857,7 +575,7 @@
             <h2 class="section-title">Quick Access</h2>
             <div class="cards-grid">
                 <a href="apply.html" class="card">
-                    <img src="STUDENT REG.avif" alt="Student Registration" class="card-image">
+                    <img src="STUDENT-REG.avif" alt="Student Registration" class="card-image">
                     <div class="card-content">
                         <h3>Student Registration</h3>
                         <p>Register as a student and begin your journey towards skill development and industry readiness.</p>
@@ -873,7 +591,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img src="INDUSTRY COLLAB.jpg" alt="Industry Collaboration" class="card-image">
+                    <img src="INDUSTRY-COLLAB.jpg" alt="Industry Collaboration" class="card-image">
                     <div class="card-content">
                         <h3>Industry Collaboration</h3>
                         <p>Connect with leading industries and MSMEs for internships, projects, and employment opportunities.</p>
@@ -891,113 +609,7 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="about" id="about">
-            <h2 class="section-title">About the Portal</h2>
-            <p>The Yuva Bharat Vocational Training Portal is an integrated platform designed to revolutionize skill development across India. We connect students, colleges, training institutions, industries, and MSMEs in a unified ecosystem that promotes practical learning, industry readiness, and employment generation. Our mission is to empower youth with job-ready skills that align with industry requirements, foster innovation and entrepreneurship, and bridge the critical gap between academic learning and real-world application. Through this portal, we facilitate meaningful partnerships between educational institutions and industry leaders to create pathways for sustainable career growth and economic development.</p>
-        </section>
-
-        <!-- Objectives Section -->
-        <section class="objectives" id="objectives">
-            <h2 class="section-title">Our Objectives</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">🎯</div>
-                    <h3>Skill Development</h3>
-                    <p>Develop comprehensive job-ready skills aligned with current and future industry demands.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🏭</div>
-                    <h3>Industry Readiness</h3>
-                    <p>Prepare students with practical knowledge and competencies required by modern industries.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🔧</div>
-                    <h3>Practical Learning</h3>
-                    <p>Emphasize hands-on training, real-world projects, and apprenticeships for experiential learning.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💼</div>
-                    <h3>Employment Generation</h3>
-                    <p>Create pathways to employment through job placements and self-employment opportunities.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💡</div>
-                    <h3>Innovation & Entrepreneurship</h3>
-                    <p>Foster innovation and support entrepreneurial ventures for sustainable economic growth.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🤝</div>
-                    <h3>Academic-Industry Integration</h3>
-                    <p>Strengthen collaboration between educational institutions and industry partners.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Courses Section -->
-        <section class="courses" id="courses">
-            <h2 class="section-title">Training Programs</h2>
-            <div class="cards-grid">
-                <div class="course-card">
-                    <h3>BCA Vocational Training</h3>
-                    <p>Computer Applications with focus on software development, web technologies, and IT solutions for industry needs.</p>
-                    <button class="btn-outline" onclick="alert('Details coming soon')">View Details</button>
-                </div>
-                <div class="course-card">
-                    <h3>BBA Vocational Training</h3>
-                    <p>Business Administration with emphasis on management skills, entrepreneurship, and business operations.</p>
-                    <button class="btn-outline" onclick="alert('Details coming soon')">View Details</button>
-                </div>
-                <div class="course-card">
-                    <h3>B.Com Vocational Training</h3>
-                    <p>Commerce and Finance with focus on accounting, financial management, and audit practices.</p>
-                    <button class="btn-outline" onclick="alert('Details coming soon')">View Details</button>
-                </div>
-                <div class="course-card">
-                    <h3>BA Vocational Training</h3>
-                    <p>Arts and Humanities with skills in communication, public administration, and social management.</p>
-                    <button class="btn-outline" onclick="alert('Details coming soon')">View Details</button>
-                </div>
-                <div class="course-card">
-                    <h3>B.Tech Vocational Training</h3>
-                    <p>Engineering and Technology with expertise in manufacturing, automation, and technical innovation.</p>
-                    <button class="btn-outline" onclick="alert('Details coming soon')">View Details</button>
-                </div>
-                <div class="course-card">
-                    <h3>Skill Certification Programs</h3>
-                    <p>Short-term certification courses in emerging skills for rapid employment and career advancement.</p>
-                    <button class="btn-outline" onclick="alert('Details coming soon')">View Details</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stakeholders Section -->
-        <section class="stakeholders" id="stakeholders">
-            <h2 class="section-title">Our Stakeholders</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">👨‍🎓</div>
-                    <h3>Students</h3>
-                    <p>Aspiring youth seeking quality vocational training and industry-aligned skill development.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🏫</div>
-                    <h3>Colleges</h3>
-                    <p>Educational institutions providing vocational education and training programs.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">🏗️</div>
-                    <h3>MSMEs</h3>
-                    <p>Small and medium enterprises contributing to the economic ecosystem and job creation.</p>
-                </div>
-                
-            </div>
-        </section>
-
-       
-
-        <!-- Statistics Section -->
+        <!-- Statistics -->
         <section class="statistics">
             <h2 class="section-title" style="color: white; margin-bottom: 40px;">Our Impact</h2>
             <div class="stats-grid">
@@ -1016,56 +628,6 @@
                 <div class="stat-item">
                     <h3><span class="counter" data-target="500">0</span>+</h3>
                     <p>Skill Programs</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Updates Section -->
-        <section class="updates" id="updates">
-            <h2 class="section-title">Latest Updates & Notices</h2>
-            <div class="notice-board">
-                <div class="notice">
-                    <h4>📢 Admissions Open for 2026 Batch</h4>
-                    <p>Admissions are now open for all vocational training programs. Apply before the deadline to secure your seat and begin your journey towards skill development and career success.</p>
-                </div>
-                <div class="notice">
-                    <h4>🎯 New Vocational Training Batches Launched</h4>
-                    <p>We are launching new specialized batches in emerging technologies including AI, Cloud Computing, and Cybersecurity. Enroll now to stay ahead in the job market.</p>
-                </div>
-                <div class="notice">
-                    <h4>💼 Industry Internship Drive Announcement</h4>
-                    <p>Leading companies are offering internship opportunities for our students. Over 500 positions available across multiple sectors. Register your interest through the portal.</p>
-                </div>
-                <div class="notice">
-                    <h4>🎖️ Skill Certification Registration Notice</h4>
-                    <p>Registration for skill certification programs is now open. Complete your training and earn industry-recognized certifications to boost your career prospects.</p>
-                </div>
-                <div class="notice">
-                    <h4>📚 Webinar & Workshop Schedule Published</h4>
-                    <p>Check out our upcoming webinars and workshops featuring industry experts and thought leaders. Topics include entrepreneurship, digital skills, and career development.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h4>📍 Office Address</h4>
-                    <p>Ministry of Skill Development & Entrepreneurship<br>New Delhi, India<br>Vocational Training Division</p>
-                </div>
-                <div class="contact-item">
-                    <h4>✉️ Email</h4>
-                    <p>info@yuvabharat.gov.in<br>support@vocaltraining.org<br>careers@yuvabharat.org</p>
-                </div>
-                <div class="contact-item">
-                    <h4>📞 Phone Number</h4>
-                    <p>+91-11-XXXX-XXXX<br>+91-11-XXXX-YYYY<br>Toll Free: 1800-XXX-XXXX</p>
-                </div>
-                <div class="contact-item">
-                    <h4>🕐 Office Hours</h4>
-                    <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 2:00 PM<br>Sunday: Closed</p>
                 </div>
             </div>
         </section>
@@ -1111,7 +673,6 @@
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
-
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
@@ -1180,10 +741,7 @@
         }
 
         // Trigger animation when statistics section is visible
-        const observerOptions = {
-            threshold: 0.5
-        };
-
+        const observerOptions = { threshold: 0.5 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && entry.target.classList.contains('statistics')) {
@@ -1194,23 +752,7 @@
         }, observerOptions);
 
         const statsSection = document.querySelector('.statistics');
-        if (statsSection) {
-            observer.observe(statsSection);
-        }
-
-        // Auto-sliding Collaborations Slider
-        const slider = document.getElementById('slider');
-        if (slider) {
-            let scrollPosition = 0;
-            setInterval(() => {
-                scrollPosition += 2;
-                slider.style.transform = `translateX(-${scrollPosition}px)`;
-                
-                if (scrollPosition > slider.scrollWidth / 2) {
-                    scrollPosition = 0;
-                }
-            }, 20);
-        }
+        if (statsSection) observer.observe(statsSection);
     </script>
 </body>
 </html>

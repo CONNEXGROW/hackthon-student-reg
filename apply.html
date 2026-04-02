@@ -30,6 +30,7 @@
       width: 100%;
       padding: 50px 40px;
       animation: slideUp 0.6s ease-out;
+      position: relative;
     }
 
     @keyframes slideUp {
@@ -347,15 +348,27 @@
     }
 
     /* Loading spinner */
-    .loading-spinner {
+    .loading-overlay {
       display: none;
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 999;
+      border-radius: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(0, 0, 0, 0.1);
       border-radius: 50%;
       border-top-color: #138808;
       animation: spin 1s ease-in-out infinite;
-      margin: 20px auto;
     }
 
     @keyframes spin {
@@ -456,7 +469,10 @@
         </div>
       </div>
 
-      <div class="loading-spinner" id="loadingSpinner"></div>
+      <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+      </div>
+
       <button type="submit" id="submitBtn">Submit Registration</button>
     </form>
   </div>
@@ -489,7 +505,7 @@
     const statusDiv = document.getElementById('status');
     const photoSizePopup = document.getElementById('photoSizePopup');
     const successPopup = document.getElementById('successPopup');
-    const loadingSpinner = document.getElementById('loadingSpinner');
+    const loadingOverlay = document.getElementById('loadingOverlay');
 
     let photoBase64 = null;
 
@@ -582,7 +598,7 @@
       }
 
       submitBtn.disabled = true;
-      loadingSpinner.style.display = 'block';
+      loadingOverlay.style.display = 'flex';
       showStatus('Submitting your information...', false, true);
 
       const formData = {
@@ -620,7 +636,7 @@
         showStatus(error.message || 'Something went wrong. Please try again.', true);
       } finally {
         submitBtn.disabled = false;
-        loadingSpinner.style.display = 'none';
+        loadingOverlay.style.display = 'none';
       }
     });
   </script>

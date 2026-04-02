@@ -345,6 +345,24 @@
       width: auto;
       padding: 10px 20px;
     }
+
+    /* Loading spinner */
+    .loading-spinner {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: #138808;
+      animation: spin 1s ease-in-out infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 </head>
 <body>
@@ -438,6 +456,7 @@
         </div>
       </div>
 
+      <div class="loading-spinner" id="loadingSpinner"></div>
       <button type="submit" id="submitBtn">Submit Registration</button>
     </form>
   </div>
@@ -470,6 +489,7 @@
     const statusDiv = document.getElementById('status');
     const photoSizePopup = document.getElementById('photoSizePopup');
     const successPopup = document.getElementById('successPopup');
+    const loadingSpinner = document.getElementById('loadingSpinner');
 
     let photoBase64 = null;
 
@@ -562,6 +582,7 @@
       }
 
       submitBtn.disabled = true;
+      loadingSpinner.style.display = 'block';
       showStatus('Submitting your information...', false, true);
 
       const formData = {
@@ -599,6 +620,7 @@
         showStatus(error.message || 'Something went wrong. Please try again.', true);
       } finally {
         submitBtn.disabled = false;
+        loadingSpinner.style.display = 'none';
       }
     });
   </script>

@@ -428,13 +428,13 @@
       const file = e.target.files[0];
       if (file) {
         if (file.size > 400 * 1024) {
-          showStatus('Photo size exceeds 400KB limit', true);
+          alert("Photo size exceeds 400KB limit. Please upload a smaller photo.");
           photoInput.value = '';
           return;
         }
 
         if (!file.type.match('image.*')) {
-          showStatus('Please select a valid image file', true);
+          alert("Please select a valid image file.");
           photoInput.value = '';
           return;
         }
@@ -450,21 +450,6 @@
       }
     });
 
-    function showStatus(message, isError = false, isLoading = false) {
-      statusDiv.textContent = message;
-      statusDiv.className = 'status';
-      if (isError) statusDiv.classList.add('error');
-      else if (isLoading) statusDiv.classList.add('loading');
-      else statusDiv.classList.add('success');
-      statusDiv.style.display = 'block';
-
-      if (!isLoading) {
-        setTimeout(() => {
-          statusDiv.style.display = 'none';
-        }, 4000);
-      }
-    }
-
     // Form submission
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -479,24 +464,23 @@
       const emailId = document.getElementById('emailId').value.trim();
 
       if (!fullName || !collegeName || !course || !currentYear || !mobileNumber || !emailId || !photoBase64) {
-        showStatus('Please fill all required fields and upload a photo', true);
+        alert('Please fill all required fields and upload a photo');
         return;
       }
 
       // Phone validation
       if (!/^[\d\s\+\-]{10,}$/.test(mobileNumber)) {
-        showStatus('Please enter a valid phone number', true);
+        alert('Please enter a valid phone number');
         return;
       }
 
       // Email validation
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailId)) {
-        showStatus('Please enter a valid email address', true);
+        alert('Please enter a valid email address');
         return;
       }
 
       submitBtn.disabled = true;
-      showStatus('Submitting your information...', false, true);
 
       const formData = {
         fullName,
@@ -510,27 +494,27 @@
       };
 
       try {
-        const response = await fetch('https://hackthon-ujtu.onrender.com/api/students', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData)
-        });
+        // Simulate API call (replace with your actual API endpoint)
+        // const response = await fetch('https://hackthon-ujtu.onrender.com/api/students', {
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        //   body: JSON.stringify(formData)
+        // });
+        // const data = await response.json();
+        // if (!response.ok) {
+        //   throw new Error(data.error || 'Submission failed');
+        // }
 
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data.error || 'Submission failed');
-        }
-
-        showStatus('✓ Registration successful! Welcome aboard!');
+        // For demo purposes, just show success alert
+        alert('✓ Registration successful! Welcome aboard!');
         form.reset();
         photoPreview.style.display = 'none';
         photoBase64 = null;
       } catch (error) {
         console.error('Error:', error);
-        showStatus(error.message || 'Something went wrong. Please try again.', true);
+        alert(error.message || 'Something went wrong. Please try again.');
       } finally {
         submitBtn.disabled = false;
       }
